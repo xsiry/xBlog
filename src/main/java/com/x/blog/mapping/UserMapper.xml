@@ -7,17 +7,6 @@
         <result column="pswd" property="pswd" jdbcType="VARCHAR" />
         <result column="nethoid" property="nethoid" jdbcType="INTEGER" />
     </resultMap>
-    <sql id="Base_Column_List" >
-        sysusid, sysname, username, pswd, nethoid
-    </sql>
-    <select id="checkLogin" parameterType="String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from sys_user
-        where username = #{userName, jdbcType=VARCHAR}
-        and pswd = #{passWord, jdbcType=VARCHAR}
-        and sutype = 2
-    </select>
 
     <!-- <select id="findUserByUsername" parameterType="String" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/>

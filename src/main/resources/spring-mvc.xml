@@ -10,14 +10,14 @@
                         http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="com.x.blog" />
+    <context:component-scan base-package="com.x.blog"/>
     <!-- 拦截器 -->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**" />
-            <mvc:exclude-mapping path="/login.*" />
-            <mvc:exclude-mapping path="/loginOut.*" />
-            <mvc:exclude-mapping path="/ping.*" />
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login.*"/>
+            <mvc:exclude-mapping path="/loginOut.*"/>
+            <mvc:exclude-mapping path="/ping.*"/>
             <bean class="com.x.blog.interceptor.SessionInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
@@ -26,7 +26,7 @@
     <context:component-scan base-package="com.x.blog.controller"
                             use-default-filters="false">
         <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller" />
+                                expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
     <!-- 避免IE执行AJAX时，返回JSON出现下载文件 -->
@@ -34,12 +34,12 @@
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <mvc:default-servlet-handler />
+    <mvc:default-servlet-handler/>
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/> <!-- 视图文件的前缀 -->
